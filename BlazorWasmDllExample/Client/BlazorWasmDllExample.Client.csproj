@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ExternalDll\ExampleErrorDll.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ExternalDll\ExampleErrorDll.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.7" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\BlazorWasmDllExample.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+</Project>
